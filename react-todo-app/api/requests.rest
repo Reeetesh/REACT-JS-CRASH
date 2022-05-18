@@ -7,3 +7,9 @@ Content-Type: application/json
 {
     "text":"get me biryani"
 }
+
+###
+DELETE http://localhost:3001/todos/delete/62847c1249fdefe41be4c304
+
+###
+PUT http://localhost:3001/todos/complete/627b4be0613b6bdd5c6f4153

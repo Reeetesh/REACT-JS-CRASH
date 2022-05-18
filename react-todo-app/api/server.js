@@ -30,9 +30,18 @@ app.post("/todos/new", (req, res) => {
   res.json(todo);
 });
 
-app.delete("/todo/delete/:id", async (req, res) => {
+app.delete("/todos/delete/:id", async (req, res) => {
   const result = await Todo.findByIdAndDelete(req.params.id);
   res.json(result);
+});
+
+app.get("/todos/complete/:id", async (req, res) => {
+  const todo = await Todo.findById(req.params.id);
+
+  todo.complete = !todo.complete;
+
+  todo.save();
+  res.json(todo);
 });
 
 app.listen(3001, () => console.log("Server started at port 3001"));
